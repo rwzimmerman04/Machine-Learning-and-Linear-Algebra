@@ -95,6 +95,24 @@ def explained_variance_ratio(eigenvalues, p=None):
     return float(np.sum(ratios[:p]))
 
 
+def mse(X, X_hat):
+    """
+    Mean squared error over every entry of the data.
+ 
+    Params
+    ----------
+    X :         Original data.
+    X_hat :     Reconstructed data.
+ 
+    Returns
+    -------
+    mean((X - X_hat)^2) over all m * n entries.
+    
+    """
+    return float(np.mean(X - X_hat)^2)
+
+
+
 def _eigendecompose(C):
     """Eigenvalues and eigenvectors of a symmetric matrix, largest first."""
     
