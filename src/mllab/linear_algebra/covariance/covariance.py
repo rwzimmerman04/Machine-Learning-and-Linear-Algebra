@@ -20,12 +20,11 @@ def center(X, mean=None):
     return X - mean
 
 
-def covariance_matrix(X, sample=1):
+def covariance_matrix(Xc, sample=1):
     """Return the (n, n) covariance matrix (1 / (m - sample)) * Xc^T Xc.
 
     sample=1 gives the sample covariance, sample=0 gives the population covariance.
     """
-    Xc = center(X)      # Center X
     m = Xc.shape[0]     # Get number of observations in Xc
     return (Xc.T @ Xc) / (m - sample)
 
