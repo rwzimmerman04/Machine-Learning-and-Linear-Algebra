@@ -62,7 +62,7 @@ ml-learning-lab/
     └── optimization/
 ```
 
-The repository will grow incrementally as new concepts are covered and implemented.
+The repository will grow incrementally as new concepts are covered and implemented. This repository will be subject to re-structures as the project grows and more concepts are added.
 
 ## Implementation Approach
 

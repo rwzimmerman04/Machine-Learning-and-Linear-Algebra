@@ -1,4 +1,4 @@
-from utilities.vectors import normalize
+from mllab.utilities.vectors import normalize
 
 def eigenvector_2x2(matrix, eigenvalue):
     """Computes the Egienvectors of a given matrix."""
@@ -20,4 +20,4 @@ def eigenvector_2x2(matrix, eigenvalue):
         v1 = -(d_minus_lambda / c) * v2
 
 
-    return normalize([v1, v2])
+    return normalize([float(v1), float(v2)])

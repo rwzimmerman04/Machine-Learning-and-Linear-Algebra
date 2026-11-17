@@ -30,15 +30,18 @@ A =
 \end{bmatrix}
 $$
 
-To find its eigenvalues, we need to determine the values of $\lambda$ for which the matrix transforms a nonzero vector into a scalar multiple of itself.
+To find its eigenvalues, we need to determine the values of $\lambda$ where the matrix transforms a nonzero vector into a scalar multiple of itself.
 
 Starting with:
 
 $$Av = \lambda v$$
 
-To express the scalar multiplication as a matrix operation, introduce the identity matrix $I$, which has the same dimensions as $A$.
+To express the scalar multiplication as a matrix operation, we will introduce the identity matrix $I$, which has the same dimensions as $A$.
 
 $$Av = (\lambda I)v$$
+
+
+> **Note:** The identity matrix is the matrix equivalent of multiplying by 1. This does not change the value of $\lambda$, it simply lets us represent $\lambda$ as a matrix.
 
 Rearranging gives:
 
@@ -107,8 +110,7 @@ Its value determines the type of eigenvalues:
 - **Zero discriminant:** One repeated real eigenvalue.
 - **Negative discriminant:** Two complex conjugate eigenvalues for a real matrix.
 
-The discriminant is useful because it tells us what kind of eigenvalues to expect before calculating them.
-
+The discriminant is useful because it tells us what kind of eigenvalues to expect before calculating them. 
 
 ## Python Implementation
 
@@ -127,21 +129,9 @@ The implementations reuse common operations from the repository's utilities dire
 - `calc_euclidean()`: Calculates the Euclidean magnitude of a vector.
 - `normalize()`: Returns a normalized vector.
 
-## Verification
-
-NumPy provides functions for calculating eigenvalues and eigenvectors. These can be used to verify the results of the educational implementations.
-
-- `numpy.linalg.eig()`: Calculates eigenvalues and eigenvectors for general square matrices.
-- `numpy.linalg.eigh()`: Calculates eigenvalues and eigenvectors for real symmetric or complex Hermitian matrices.
-
-The results can be compared to check the correctness of the implementations.
-
-Note that eigenvectors may differ in sign or complex phase while still being mathematically equivalent.
-
 ## Future Work
 
 - Handle special cases such as diagonal matrices and repeated eigenvalues.
 - Improve eigenvector calculations to handle all 2x2 cases.
 - Extend eigenvalue and eigenvector calculations to larger matrices.
-- Explore numerical methods used by libraries such as NumPy.
 - Investigate matrix diagonalization and its applications.
