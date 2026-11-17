@@ -109,7 +109,7 @@ def mse(X, X_hat):
     mean((X - X_hat)^2) over all m * n entries.
     
     """
-    return float(np.mean(X - X_hat)^2)
+    return float(np.mean((X - X_hat)**2))
 
 
 
