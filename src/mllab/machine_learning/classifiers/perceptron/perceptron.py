@@ -17,7 +17,7 @@ class Perceptron:
         self.random_state = random_state
         self.weights = None
         self.bias = 0.0
-        self.errors_ = []
+        self.errors = []
 
 
     def net_input(self, x):
@@ -43,15 +43,15 @@ class Perceptron:
             self: The fitted perceptron.
         """
         # Get the number of observations and features in the training data
-        n_observations, n_features = X.shape
+        _, n_features = X.shape
 
         # Start with zero-valued weights and bias.
         self.weights = np.zeros(n_features)
         self.bias = 0.0
 
         # Train the model by passing over the data for each epoch.
-        for _ in range(self.epochs):
-            errors = 0
+        for _ in range(self.n_epochs):
+            n_errors = 0
 
             # Process each observation and its corresponding label.
             for xi, yi in zip(X, y):
@@ -71,10 +71,32 @@ class Perceptron:
                 self.bias += update
 
                 # Count each incorrect prediction.
-                errors += int(update != 0)
+                n_errors += int(update != 0)
 
             # Store the number of errors made during this epoch.
-            self.errors.append(errors)
+            self.errors.append(n_errors)
 
 
-   
+    def predict_one(self, x):
+        """Predict the binary label for a single sample.
+
+        Args:
+            x: 1D array-like containing one sample's features.
+
+        Returns:
+            Predicted label, conventionally 0 or 1.
+        """
+        linear_output = self.net_input(x)
+        return 1 if linear_output >= 0 else 0
+
+
+    def predict(self, X):
+        """Predict labels for multiple samples.
+
+        Args:
+            X: 2D array-like of shape (n_samples, n_features).
+
+        Returns:
+            A 1D NumPy array of predicted labels.
+        """
+        return np.array([self.predict_one(xi) for xi in X])
